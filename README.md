@@ -47,13 +47,13 @@ THEN I exit the application, and the HTML is generated
 1. ![screenshot 1](/images/)
 
 ---
-### Installation
+## Installation
 [REPO](http://)
 
-[Inquirer](https://www.npmjs.com/package/inquirer#installation)
+[Inquirer] (https://www.npmjs.com/package/inquirer#installation)
 ---
 
-### Author
+## Author
 Built and maintain by [Ashley Walker](https://github.com/lawalker4)
 ---
 
