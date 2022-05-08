@@ -1,6 +1,6 @@
-const Engineer = require("./lib/engineer");
-const Intern = require("./lib/intern");
-const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer.js");
+const Intern = require("./lib/intern.js");
+const Manager = require("./lib/manager.js");
 const inquire = require("inquirer");
 const fs = require("fs");
 const generateTeam= require("./templates/pagetemplate.js");
@@ -9,39 +9,8 @@ const inquirer = require("inquirer");
 const team = [];
 addCreateTeamList();
 
-//Questions from inquirer prompts
-
-function addCreateTeamList() {
-    inquirer.prompt([
-        {
-            type:"list",
-            name: "addEmployee",
-            message:"Select the employee you want to add to the list.",
-            choices:[
-                "Engineer",
-                "Intern",
-                "Managner",
-                "Finish Making Team List"
-            ]
-        }
-    ]).then(function(data){
-        const employeeRole = data.addEmployee;
-        if (employeeRole === "Engineer"){
-            engineerInfo();
-        }
-        else if (employeeRole === "Intern") {
-            internInfo();
-        }
-        else if (employeeRole === "Manager") {
-        }
-        else if (employeeRole === "Finish Making Team List") {
-            renderTeam();
-        }
-    })
-}
-
 //Create functions to add engineer, interns and managers
-function addEngineer(){
+function addEngineerInfo(){
     console.log(`
     =======================
     Team Profile Generator!
@@ -70,14 +39,14 @@ function addEngineer(){
             name: "engineerGitHub",
             message: "The Engineers GitHub"
         },
-    ]).then(function(data){
+    ]).then((data) => {
         const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
         team.push(engineer);
         addCreateTeamList
     });
 }
 
-function addIntern(){
+function addInternInfo(){
     console.log(`
     ==============
     Add New Intern
@@ -114,7 +83,7 @@ function addIntern(){
     });
 }
 
-function addManager(){
+function addManagerInfo(){
     console.log(`
     ================
     Add New Manager
@@ -148,6 +117,38 @@ function addManager(){
         team.push(manager);
         addCreateTeamList
     }); 
+}
+//Questions from inquirer prompts
+
+function addCreateTeamList() {
+    return inquirer
+    .prompt([
+        {
+            type:"list",
+            name: "addEmployee",
+            message:"Select the employee you want to add to the list.",
+            choices:[
+                "Engineer",
+                "Intern",
+                "Managner",
+                "Finish Making Team List"
+            ]
+        },
+    ]).then(function(data){
+        const employeeRole = data.addEmployee;
+        if (employeeRole === "Engineer"){
+            addEngineerInfo();
+        }
+        else if (employeeRole === "Intern") {
+            addInternInfo();
+        }
+        else if (employeeRole === "Manager") {
+            addManagerInfo();
+        }   
+        else if (employeeRole === "Finish Making Team List") {
+            renderTeam();
+        }
+    })
 }
 
 
