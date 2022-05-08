@@ -21,10 +21,30 @@ function addCreateTeamList() {
                 "Engineer",
                 "Intern",
                 "Managner",
+                "Finish Making Team List"
             ]
         }
-    ])
+    ]).then(function(data){
+        const employeeRole = data.addEmployee;
+        if (employeeRole === "Engineer"){
+            engineerInfo();
+        }
+        else if (employeeRole === "Intern") {
+            internInfo();
+        }
+        else if (employeeRole === "Manager") {
+        }
+        else if (employeeRole === "Finish Making Team List") {
+            renderTeam();
+        }
+    })
 }
+
+//Create functions to add engineer, interns and managers
+
+
+
+
 
 
 
