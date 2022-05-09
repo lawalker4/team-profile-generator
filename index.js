@@ -1,6 +1,6 @@
-const Engineer = require("./lib/engineer.js");
-const Intern = require("./lib/intern.js");
-const Manager = require("./lib/manager.js");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+const Manager = require("./lib/manager");
 const inquire = require("inquirer");
 const fs = require("fs");
 const generateTeam= require("./templates/pagetemplate.js");
@@ -42,7 +42,7 @@ function addEngineerInfo(){
     ]).then((data) => {
         const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
         team.push(engineer);
-        addCreateTeamList
+        addCreateTeamList();
     });
 }
 
@@ -74,12 +74,12 @@ function addInternInfo(){
         {
             type:"input",
             name: "internSchool",
-            message: "The name of the school the intern is from."
+            message: "The name of the school the intern is from"
         },
     ]).then(function(data){
-        const intern = new Intern(data.interName, data.internId, data.internEmail, data.internSchool);
+        const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
         team.push(intern);
-        addCreateTeamList
+        addCreateTeamList();
     });
 }
 
@@ -115,7 +115,7 @@ function addManagerInfo(){
     ]).then(function(data){
         const manager = new Manager(data.managerame, data.managerId, data.managerEmail, data.managerOfficeNumber);
         team.push(manager);
-        addCreateTeamList
+        addCreateTeamList();
     }); 
 }
 //Questions from inquirer prompts
