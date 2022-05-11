@@ -5,9 +5,9 @@ const inquire = require("inquirer");
 const fs = require("fs");
 const generateTeam= require("./templates/pagetemplate.js");
 const inquirer = require("inquirer");
+const { resolve } = require("path");
 
-const team = [];
-addCreateTeamList();
+const newTeam = [];
 
 //Create functions to add engineer, interns and managers
 function addEngineerInfo(){
@@ -16,7 +16,7 @@ function addEngineerInfo(){
     Team Profile Generator!
     =======================
     `);
-    return inquire
+    return inquirer
     .prompt([
         {
             type:"input",
@@ -39,10 +39,11 @@ function addEngineerInfo(){
             name: "engineerGitHub",
             message: "The Engineers GitHub"
         },
-    ]).then((data) => {
-        const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGithub);
-        team.push(engineer);
-        addCreateTeamList();
+    ]).then((answers) => {
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        newTeam.push(engineer);
+        console.log(newTeam);
+        addNewTeamMember();
     });
 }
 
@@ -51,9 +52,9 @@ function addInternInfo(){
     ==============
     Add New Intern
     ==============
-    `)
+    `);
 
-    return inquire
+    return inquirer
     .prompt([
         {
             type:"input",
@@ -76,10 +77,11 @@ function addInternInfo(){
             name: "internSchool",
             message: "The name of the school the intern is from"
         },
-    ]).then(function(data){
-        const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
-        team.push(intern);
-        addCreateTeamList();
+    ]).then((answers) => {
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        newTeam.push(intern);
+        console.log(newTeam);
+        addNewTeamMember();
     });
 }
 
@@ -112,15 +114,17 @@ function addManagerInfo(){
             name: "managerOfficeNumber",
             message: "Manager Office Number"
         },
-    ]).then(function(data){
-        const manager = new Manager(data.managerame, data.managerId, data.managerEmail, data.managerOfficeNumber);
-        team.push(manager);
-        addCreateTeamList();
-    }); 
+    ]).then((answers) => {
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+        newTeam.push(manager);
+        console.log(newTeam);
+        addNewTeamMember();
+    });
 }
+
 //Questions from inquirer prompts
 
-function addCreateTeamList() {
+function addNewTeamMember() {
     return inquirer
     .prompt([
         {
@@ -132,25 +136,39 @@ function addCreateTeamList() {
                 "Intern",
                 "Managner",
                 "Finish Making Team List"
-            ]
+            ],
         },
-    ]).then(function(data){
-        const employeeRole = data.addEmployee;
-        if (employeeRole === "Engineer"){
+    ])
+    .then((choice) => {
+        if (choice.memberType === "Engineer"){
             addEngineerInfo();
         }
-        else if (employeeRole === "Intern") {
+        if (choice.memberType === "Intern") {
             addInternInfo();
         }
-        else if (employeeRole === "Manager") {
+        if (choice.memberType === "Manager") {
             addManagerInfo();
-        }   
-        else if (employeeRole === "Finish Making Team List") {
-            renderTeam();
+        }  
+        if (choice.memberType === "Finish Making Team List"){
+            console.log(newTeam); 
+            return finishTeam('./index.html', generateTeam(newTeam));
         }
-    })
+    });
+
 }
 
+    function finishTeam(fileName, data){
+        console.log(newTeam);
+        fs.writeFile(fileName, data, (err) =>{
+            if (err){
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
+    }
 
-
-
+  addEngineerInfo();
