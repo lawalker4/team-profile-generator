@@ -44,16 +44,17 @@ THEN I exit the application, and the HTML is generated
 
 ---
 ### Screenshot
-1. ![screenshot 1](/images/)
+1. ![screenshot 1](/images/Screenshot1.JPG/)
+2. ![screenshot 2](/images/Screenshot2.JPG)
 
 ---
-## Installation
-[REPO](http://)
+### Installation
+[REPO](https://github.com/lawalker4/team-profile-generator)
 
 [Inquirer] (https://www.npmjs.com/package/inquirer#installation)
 ---
 
-## Author
+### Author
 Built and maintain by [Ashley Walker](https://github.com/lawalker4)
 ---
 
