@@ -51,7 +51,8 @@ THEN I exit the application, and the HTML is generated
 ### Installation
 [REPO](https://github.com/lawalker4/team-profile-generator)
 
-[Inquirer] (https://www.npmjs.com/package/inquirer#installation)
+[Inquirer](http://www.npmjs.com/package/inquirer)
+
 ---
 
 ### Author
