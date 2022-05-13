@@ -134,22 +134,23 @@ function addNewTeamMember() {
             choices:[
                 "Engineer",
                 "Intern",
-                "Managner",
+                "Manager",
                 "Finish Making Team List"
             ],
         },
     ])
     .then((choice) => {
-        if (choice.memberType === "Engineer"){
+        console.log(choice)
+        if (choice.addEmployee === "Engineer"){
             addEngineerInfo();
         }
-        if (choice.memberType === "Intern") {
+        if (choice.addEmployee === "Intern") {
             addInternInfo();
         }
-        if (choice.memberType === "Manager") {
+        if (choice.addEmployee === "Manager") {
             addManagerInfo();
         }  
-        if (choice.memberType === "Finish Making Team List"){
+        if (choice.addEmployee === "Finish Making Team List"){
             console.log(newTeam); 
             return finishTeam('./index.html', generateTeam(newTeam));
         }

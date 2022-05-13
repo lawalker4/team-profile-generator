@@ -58,16 +58,16 @@ const generateTeam = (team) => {
     //filter though code to figuer out where the employee needs to go using filter and map
 
     html.push(
-        team.filer((employee) => employee.getRole() === "Engineer")
+        team.filter((employee) => employee.getRole() === "Engineer")
             .map((engineer) => generateEngineer(engineer))
     );
     html.push(
-        team.filer((employee) => employee.getRole() === "Intern")
+        team.filter((employee) => employee.getRole() === "Intern")
             .map((intern) => generateEngineer(intern))
             .join('')
     );
     html.push(
-        team.filer((employee) => employee.getRole() === "Manager")
+        team.filter((employee) => employee.getRole() === "Manager")
             .map((manager) => generateEngineer(manager))
             .join('')
     );
