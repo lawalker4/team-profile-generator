@@ -3,7 +3,8 @@
 const Engineer = require("../lib/engineer");
 
 //creating html for each of the roles of the team.
-const generateTeam = (team) => {
+const generateTeam = (newTeam) => {
+    console.log(newTeam);
 
     const generateEngineer = (Engineer) => {
         return `
@@ -60,15 +61,16 @@ const generateTeam = (team) => {
     html.push(
         team.filter((employee) => employee.getRole() === "Engineer")
             .map((engineer) => generateEngineer(engineer))
+            .join('')
     );
     html.push(
         team.filter((employee) => employee.getRole() === "Intern")
-            .map((intern) => generateEngineer(intern))
+            .map((intern) => generateIntern(intern))
             .join('')
     );
     html.push(
         team.filter((employee) => employee.getRole() === "Manager")
-            .map((manager) => generateEngineer(manager))
+            .map((manager) => generateManager(manager))
             .join('')
     );
     return html.join('');
@@ -76,9 +78,9 @@ const generateTeam = (team) => {
 }
 
 //create layout of html page
-module.exports = (team) => {
+module.exports = (newTeam) => {
     return`
-        < !DOCTYPE html >
+        <!DOCTYPE html>
          <html>
            <head>
             <meta charset="UTF-8" />
@@ -98,7 +100,7 @@ module.exports = (team) => {
                 <main>
                 <div class="card" style="width: 16rem;">
                     <div class="card-header">
-                    ${generateTeam(team)}
+                    ${generateTeam(newTeam)}
                     </div>
                 </div>
             </main>

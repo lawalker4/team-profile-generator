@@ -40,7 +40,7 @@ function addEngineerInfo(){
             message: "The Engineers GitHub"
         },
     ]).then((answers) => {
-        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGitHub);
         newTeam.push(engineer);
         console.log(newTeam);
         addNewTeamMember();
@@ -119,6 +119,7 @@ function addManagerInfo(){
         newTeam.push(manager);
         console.log(newTeam);
         addNewTeamMember();
+        
     });
 }
 
@@ -140,7 +141,6 @@ function addNewTeamMember() {
         },
     ])
     .then((choice) => {
-        console.log(choice)
         if (choice.addEmployee === "Engineer"){
             addEngineerInfo();
         }
