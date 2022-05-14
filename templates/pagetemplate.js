@@ -102,7 +102,7 @@ module.exports = (newTeam) => {
                  <div class="container">
                     <div class="row">   
                     <div class="card-header">
-                                    
+                                      
                     ${generateTeam(newTeam)}
                     </div>
                 </div>
