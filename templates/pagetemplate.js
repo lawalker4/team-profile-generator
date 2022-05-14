@@ -1,21 +1,21 @@
-const Engineer = require("../lib/engineer")
-const Intern = require("../lib/intern")
-const Manager = require("../lib/manager")
+// const Engineer = require("../lib/engineer")
+// const Intern = require("../lib/intern")
+// const Manager = require("../lib/manager")
 
 //creating html for each of the roles of the team.
 const generateTeam = (newTeam) => {
     console.log(newTeam);
 
-    const generateEngineer = (Engineer) => {
+    const generateEngineer = (engineer) => {
         return `
         <div class="card" style="width: 16rem;">
         <div class="card-header">
-            <i class="fa-solid fa-clipboard-check"></i> ${Engineer.getRole()}</div>
+            <i class="fa-solid fa-clipboard-check"></i> ${engineer.getRole()}</div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name: ${Engineer.getName()} </li>  
-              <li class="list-group-item">ID: ${Engineer.getId()}</li>
-              <li class="list-group-item">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
-              <li class="list-group-item">GitHub:<a href="http://github.com/${Engineer.getGithub()}"target=_blank" rel="noopener noreferrer">${Engineer.getGithub()}</a></li>
+              <li class="list-group-item">Name: ${engineer.getName()} </li>  
+              <li class="list-group-item">ID: ${engineer.getId()}</li>
+              <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+              <li class="list-group-item">GitHub:<a href="http://github.com/${engineer.getGithub()}"target=_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
             </ul>
     </div>
     </div>
@@ -100,7 +100,7 @@ module.exports = (newTeam) => {
 
                 <main>
                  <div class="container">
-                    <div class="row">   
+                    <div class ="row">
                     <div class="card-header">
                                       
                     ${generateTeam(newTeam)}
