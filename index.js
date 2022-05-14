@@ -152,24 +152,25 @@ function addNewTeamMember() {
         }  
         if (choice.addEmployee === "Finish Making Team List"){
             // console.log(newTeam); 
-            return finishTeam('./index.html', generateTeam(newTeam));
+            return finishNewTeam('./index.html', generateTeam(newTeam));
         }
     });
 
 }
 
-    function finishTeam(file, data){
+
+    function finishNewTeam(fileName, data){
         console.log(data);
-        fs.writeFileSync(file, data (err) =>{
-        //     if (err){
-        //         reject(err);
-        //         return;
-        //     }
-        //     resolve({
-        //         ok: true,
-        //         message: 'File created!'
-        //     });
-        // });
+        fs.writeFile(fileName, data, (err) => {
+            if (err){
+                throw err;
+                
+            } else {
+                console.log("File to be written");
+            }
+           
+           
+        });
     }
 
   addEngineerInfo();

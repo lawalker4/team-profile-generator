@@ -26,7 +26,7 @@ const generateTeam = (newTeam) => {
         return `
         <div class="card" style="width: 16rem;">
         <div class="card-header">
-            <i class="fa-solid fa-clipboard-check"></i> ${Intern.getRole()}</div>
+            <i class="fa-solid fa-graduation-cap"></i> ${Intern.getRole()}</div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Name:${Intern.getName()}</li>  
               <li class="list-group-item">ID:${Intern.getId()}</li>
@@ -42,7 +42,7 @@ const generateTeam = (newTeam) => {
         return `
     <div class="card" style="width: 16rem;">
     <div class="card-header">
-        <i class="fa-solid fa-clipboard-check"></i> ${Manager.getRole()}</div>
+        <i class="fa-solid fa-people-roof"></i> ${Manager.getRole()}</div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Name: ${Manager.getName()}</li>  
           <li class="list-group-item">ID: ${Manager.getId()}</li>
@@ -53,6 +53,7 @@ const generateTeam = (newTeam) => {
 </div>
 `;
     };
+
 
     const html = [];
 
@@ -98,8 +99,10 @@ module.exports = (newTeam) => {
                 </header>
 
                 <main>
-                <div class="card" style="width: 16rem;">
+                 <div class="container">
+                    <div class="row">   
                     <div class="card-header">
+                                    
                     ${generateTeam(newTeam)}
                     </div>
                 </div>
