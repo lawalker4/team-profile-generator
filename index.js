@@ -151,7 +151,7 @@ function addNewTeamMember() {
             addManagerInfo();
         }  
         if (choice.addEmployee === "Finish Making Team List"){
-            console.log(newTeam); 
+            // console.log(newTeam); 
             return finishTeam('./index.html', generateTeam(newTeam));
         }
     });
@@ -159,17 +159,17 @@ function addNewTeamMember() {
 }
 
     function finishTeam(fileName, data){
-        console.log(newTeam);
-        fs.writeFile(fileName, data, (err) =>{
-            if (err){
-                reject(err);
-                return;
-            }
-            resolve({
-                ok: true,
-                message: 'File created!'
-            });
-        });
+        console.log(data);
+        // fs.writeFile(fileName, .data (err) =>{
+        //     if (err){
+        //         reject(err);
+        //         return;
+        //     }
+        //     resolve({
+        //         ok: true,
+        //         message: 'File created!'
+        //     });
+        // });
     }
 
   addEngineerInfo();

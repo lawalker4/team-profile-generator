@@ -1,6 +1,6 @@
-// const Engineer = require("../lib/engineer")
-
-const Engineer = require("../lib/engineer");
+const Engineer = require("../lib/engineer")
+const Intern = require("../lib/intern")
+const Manager = require("../lib/manager")
 
 //creating html for each of the roles of the team.
 const generateTeam = (newTeam) => {
@@ -22,7 +22,7 @@ const generateTeam = (newTeam) => {
     `;
     };
 
-    const generateIntren = (Intern) => {
+    const generateIntern = (Intern) => {
         return `
         <div class="card" style="width: 16rem;">
         <div class="card-header">
@@ -38,7 +38,7 @@ const generateTeam = (newTeam) => {
     `;
     };
 
-    const generatManger = (Manger) => {
+    const generateManager = (Manager) => {
         return `
     <div class="card" style="width: 16rem;">
     <div class="card-header">
@@ -59,17 +59,17 @@ const generateTeam = (newTeam) => {
     //filter though code to figuer out where the employee needs to go using filter and map
 
     html.push(
-        team.filter((employee) => employee.getRole() === "Engineer")
+        newTeam.filter((employee) => employee.getRole() === "Engineer")
             .map((engineer) => generateEngineer(engineer))
             .join('')
     );
     html.push(
-        team.filter((employee) => employee.getRole() === "Intern")
+        newTeam.filter((employee) => employee.getRole() === "Intern")
             .map((intern) => generateIntern(intern))
             .join('')
     );
     html.push(
-        team.filter((employee) => employee.getRole() === "Manager")
+        newTeam.filter((employee) => employee.getRole() === "Manager")
             .map((manager) => generateManager(manager))
             .join('')
     );
