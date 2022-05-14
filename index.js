@@ -158,9 +158,9 @@ function addNewTeamMember() {
 
 }
 
-    function finishTeam(fileName, data){
+    function finishTeam(file, data){
         console.log(data);
-        // fs.writeFile(fileName, .data (err) =>{
+        fs.writeFileSync(file, data (err) =>{
         //     if (err){
         //         reject(err);
         //         return;
