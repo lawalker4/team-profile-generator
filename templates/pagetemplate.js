@@ -6,16 +6,16 @@
 const generateTeam = (newTeam) => {
     console.log(newTeam);
 
-    const generateEngineer = (engineer) => {
+    const generateEngineer = (Engineer) => {
         return `
         <div class="card" style="width: 16rem;">
         <div class="card-header">
-            <i class="fa-solid fa-clipboard-check"></i> ${engineer.getRole()}</div>
+            <i class="fa-solid fa-clipboard-check"></i> ${Engineer.getRole()}</div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name: ${engineer.getName()} </li>  
-              <li class="list-group-item">ID: ${engineer.getId()}</li>
-              <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-              <li class="list-group-item">GitHub:<a href="http://github.com/${engineer.getGithub()}"target=_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+              <li class="list-group-item">Name: ${Engineer.getName()} </li>  
+              <li class="list-group-item">ID: ${Engineer.getId()}</li>
+              <li class="list-group-item">Email: <a href="mailto:${Engineer.getEmail()}">${Engineer.getEmail()}</a></li>
+              <li class="list-group-item">GitHub:<a href="http://github.com/${Engineer.getGithub()}"target=_blank" rel="noopener noreferrer">${Engineer.getGithub()}</a></li>
             </ul>
     </div>
     </div>

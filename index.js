@@ -40,7 +40,7 @@ function addEngineerInfo(){
             message: "The Engineers GitHub"
         },
     ]).then((answers) => {
-        const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGitHub);
+        const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGitHub);
         newTeam.push(engineer);
         console.log(newTeam);
         addNewTeamMember();
@@ -78,7 +78,7 @@ function addInternInfo(){
             message: "The name of the school the intern is from"
         },
     ]).then((answers) => {
-        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
         newTeam.push(intern);
         console.log(newTeam);
         addNewTeamMember();
@@ -115,7 +115,7 @@ function addManagerInfo(){
             message: "Manager Office Number"
         },
     ]).then((answers) => {
-        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+        const manager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.managerOfficeNumber);
         newTeam.push(manager);
         console.log(newTeam);
         addNewTeamMember();
