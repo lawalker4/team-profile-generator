@@ -46,6 +46,7 @@ THEN I exit the application, and the HTML is generated
 ### Screenshot
 1. ![screenshot 1](/images/Screenshot1.JPG/)
 2. ![screenshot 2](/images/Screenshot2.JPG)
+3. ![DemoVideo](https://watch.screencastify.com/v/z4IMML3ouwEEmt8UmPtr)
 
 ---
 ### Installation
