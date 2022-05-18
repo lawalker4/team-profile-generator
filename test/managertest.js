@@ -1,8 +1,8 @@
-const Manager = require('../lib/manager.js');
+const Manager = require('../lib/manager');
 
-jest.mock('../lib/manager.js');
+jest.mock('../lib/engineer');
 
-test('Get Manager info', () =>{
-    const Manager = new Manager;
-    console.log(manager);
+test('get engineer obj', () =>{
+    const engineer = new Engineer;
+    console.log(engineer);
   });

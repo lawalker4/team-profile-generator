@@ -1,7 +1,8 @@
-const Employee = require('./employee.js');
+const Employee = require('../lib/employee');
 
-jest.mock('./employee.js');
+jest.mock('../lib/employee');
 
 test('get employee obj', () =>{
     const Employee = new Employee;
+    console.log(Employee);
   });
